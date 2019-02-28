@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'Prestyler_Example' do
+  pod 'Prestyler', :path => '../'
+
+  target 'Prestyler_Tests' do
+    inherit! :search_paths
+
+    
+  end
+end
