@@ -9,7 +9,7 @@
 Pod::Spec.new do |s|
   s.name             = 'Prestyler'
   s.version          = '0.1.0'
-  s.summary          = 'A short description of Prestyler.'
+  s.summary          = 'Tiny attributedString creator.'
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -24,19 +24,19 @@ TODO: Add long description of the pod here.
   s.homepage         = 'https://github.com/kruil/Prestyler'
   # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
-  s.author           = { 'kruil' => '' }
+  s.author           = { 'Ilia Krupko' => '' }
   s.source           = { :git => 'https://github.com/kruil/Prestyler.git', :tag => s.version.to_s }
   # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
 
   s.ios.deployment_target = '8.0'
 
-  s.source_files = 'Prestyler/Classes/**/*'
+  s.source_files = 'Prestyler/*.swift'
   
   # s.resource_bundles = {
   #   'Prestyler' => ['Prestyler/Assets/*.png']
   # }
 
   # s.public_header_files = 'Pod/Classes/**/*.h'
-  # s.frameworks = 'UIKit', 'MapKit'
+  s.frameworks = 'UIKit'
   # s.dependency 'AFNetworking', '~> 2.3'
 end
