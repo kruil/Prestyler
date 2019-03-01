@@ -68,11 +68,11 @@
 		BEF7F7C8E74AA82548018E893BF9F7D3 /* Pods-Prestyler_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Prestyler_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		C8757307719737AA924745B4DE89167B /* Pods-Prestyler_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Prestyler_Example-resources.sh"; sourceTree = "<group>"; };
 		CABBCED63BE7C21E21A8C9FC0478DCB6 /* Pods_Prestyler_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prestyler_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC12DD09222807F9007A3AEC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
-		CC12DD0C2229057D007A3AEC /* Precolor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Precolor.swift; sourceTree = "<group>"; };
-		CC12DD0F2229062A007A3AEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
-		CC4EFD492227F22A00DB25C4 /* Prestyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prestyler.swift; sourceTree = "<group>"; };
-		CC4EFD4B2227F33D00DB25C4 /* TextRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextRule.swift; sourceTree = "<group>"; };
+		CC12DD09222807F9007A3AEC /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StringExtension.swift; path = Prestyler/Classes/StringExtension.swift; sourceTree = "<group>"; };
+		CC12DD0C2229057D007A3AEC /* Precolor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Precolor.swift; path = Prestyler/Classes/Precolor.swift; sourceTree = "<group>"; };
+		CC12DD0F2229062A007A3AEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Prestyler/Classes/Constants.swift; sourceTree = "<group>"; };
+		CC4EFD492227F22A00DB25C4 /* Prestyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prestyler.swift; path = Prestyler/Classes/Prestyler.swift; sourceTree = "<group>"; };
+		CC4EFD4B2227F33D00DB25C4 /* TextRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextRule.swift; path = Prestyler/Classes/TextRule.swift; sourceTree = "<group>"; };
 		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D77E02AFD22E8CDACADFD6130CA89AC5 /* Pods-Prestyler_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Prestyler_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		DAE17593E5F1BDB413A0A6C3BF60B341 /* Prestyler-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Prestyler-prefix.pch"; sourceTree = "<group>"; };
@@ -689,7 +689,7 @@
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -757,7 +757,7 @@
 				SDKROOT = iphoneos;
 				SKIP_INSTALL = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "$(inherited) ";
-				SWIFT_VERSION = 4.0;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";

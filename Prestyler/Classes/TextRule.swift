@@ -67,21 +67,21 @@ struct TextRule {
             }
             // check other properties
             if appliedStyle.contains(where: { $0 as? Prestyle == .bold }) {
-                text.addAttributes([NSAttributedStringKey.font: UIFont.boldSystemFont(ofSize: fontSize)],
+                text.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize)],
                                    range: range)
             }
             if appliedStyle.contains(where: { $0 as? Prestyle == .italic }) {
-                text.addAttributes([NSAttributedStringKey.font: UIFont.italicSystemFont(ofSize: fontSize)],
+                text.addAttributes([NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: fontSize)],
                                    range: range)
             }
             if appliedStyle.contains(where: { $0 as? Prestyle == .strikethrough }) {
-                text.addAttribute(NSAttributedStringKey.strikethroughStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+                text.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: range)
             }
             if appliedStyle.contains(where: { $0 as? Prestyle == .underline }) {
-                text.addAttribute(NSAttributedStringKey.underlineStyle, value: NSUnderlineStyle.styleSingle.rawValue, range: range)
+                text.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
             }
             if appliedStyle.contains(where: { $0 is Int }) {
-                text.addAttributes([NSAttributedStringKey.font: UIFont.systemFont(ofSize: fontSize)],
+                text.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)],
                                    range: range)
             }
         }
