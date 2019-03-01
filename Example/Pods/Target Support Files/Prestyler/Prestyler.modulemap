@@ -1,0 +1,6 @@
+framework module Prestyler {
+  umbrella header "Prestyler-umbrella.h"
+
+  export *
+  module * { export * }
+}

@@ -1,0 +1,16 @@
+PODS:
+  - Prestyler (0.1.0)
+
+DEPENDENCIES:
+  - Prestyler (from `../`)
+
+EXTERNAL SOURCES:
+  Prestyler:
+    :path: "../"
+
+SPEC CHECKSUMS:
+  Prestyler: 1427d4afdf449e00457e6cca826bf3a0be9e7342
+
+PODFILE CHECKSUM: 6adb11aeb369efa7bf863d660a79580471ed8df4
+
+COCOAPODS: 1.5.3
