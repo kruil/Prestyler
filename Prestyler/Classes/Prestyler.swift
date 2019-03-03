@@ -15,6 +15,7 @@ public enum Prestyle {
     case underline
 }
 
+
 public class Prestyler {
     struct STRule {
         let appliedStyle: [Any]
@@ -24,7 +25,6 @@ public class Prestyler {
     static var defaultFontSize = 18
 
     static var rules = [
-        STRule(appliedStyle: [UIColor.red], pattern: "<red>"),
         STRule(appliedStyle: [Prestyle.bold], pattern: "<b>"),
         STRule(appliedStyle: [Prestyle.italic], pattern: "<i>"),
         STRule(appliedStyle: [Prestyle.strikethrough], pattern: "<strike>"),

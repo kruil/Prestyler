@@ -24,9 +24,21 @@ struct TextRule {
         return nil
     }
 
+    var font: UIFont? {
+        for style in appliedStyle where style is UIFont {
+            return style as? UIFont
+        }
+        return nil
+    }
+
     var fontSize: CGFloat {
+        // if defined explicitly by Int return
         for style in appliedStyle where style is Int {
             return CGFloat(style as! Int)
+        }
+        // or retrieve from font
+        if let font = font {
+            return font.pointSize
         }
         return CGFloat(Prestyler.defaultFontSize)
     }
@@ -45,7 +57,7 @@ struct TextRule {
         let ranges = getRangesFromPositions(maxPosition: text.length - 1)
         // apply
         for range in ranges {
-            // check colors
+            // colors
             if let color = self.color {
                 text.addAttribute(NSAttributedString.Key.foregroundColor,
                                   value: color,
@@ -57,32 +69,32 @@ struct TextRule {
                     if precolor.random == 0 {
                         text.addAttribute(type, value: precolor.colorToApply, range: range)
                     } else {
-                        let splittedRange = range.splitToCount()
+                        let splittedRange = range.splitUnitary()
                         for range in splittedRange {
-
                             text.addAttribute(type, value: precolor.colorToApply, range: range)
                         }
                     }
                 }
             }
-            // check other properties
+            // font and size
+            if appliedStyle.contains(where: { $0 is Int }) {
+                text.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], range: range)
+            }
             if appliedStyle.contains(where: { $0 as? Prestyle == .bold }) {
-                text.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize)],
-                                   range: range)
+                text.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize)], range: range)
             }
             if appliedStyle.contains(where: { $0 as? Prestyle == .italic }) {
-                text.addAttributes([NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: fontSize)],
-                                   range: range)
+                text.addAttributes([NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: fontSize)], range: range)
             }
+            if let font = font {
+                text.addAttributes([NSAttributedString.Key.font: font], range: range)
+            }
+            // other properties
             if appliedStyle.contains(where: { $0 as? Prestyle == .strikethrough }) {
                 text.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: range)
             }
             if appliedStyle.contains(where: { $0 as? Prestyle == .underline }) {
                 text.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
-            }
-            if appliedStyle.contains(where: { $0 is Int }) {
-                text.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)],
-                                   range: range)
             }
         }
     }
@@ -105,7 +117,7 @@ struct TextRule {
 }
 
 extension NSRange {
-    func splitToCount() -> [NSRange] {
+    func splitUnitary() -> [NSRange] {
         var result = [NSRange]()
         for index in 0..<self.length {
             result.append(NSRange(location: self.location + index, length: 1))

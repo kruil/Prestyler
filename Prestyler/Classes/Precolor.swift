@@ -17,9 +17,10 @@ public class Precolor {
         if random == 0 {
             return color
         }
-        let randomColor = generateRandomColor()
-        return color.mixin(infusion: randomColor, alpha: CGFloat(Double(random) / 100))
+        return color.mixin(infusion: randomColor(), alpha: CGFloat(Double(random) / 100))
     }
+
+    //MARK: - Public methods
 
     public init() {
         color = UIColor.red
@@ -44,21 +45,17 @@ public class Precolor {
         return self
     }
 
-    func generateRandomColor() -> UIColor {
+    //MARK: - Private methods
+
+    func randomColor() -> UIColor {
         let hue : CGFloat = CGFloat(arc4random() % 256) / 256 // use 256 to get full range from 0.0 to 1.0
         let saturation : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from white
         let brightness : CGFloat = CGFloat(arc4random() % 128) / 256 + 0.5 // from 0.5 to 1.0 to stay away from black
-
         return UIColor(hue: hue, saturation: saturation, brightness: brightness, alpha: 1)
     }
 }
 
 extension UIColor {
-    var redValue: CGFloat{ return CIColor(color: self).red }
-    var greenValue: CGFloat{ return CIColor(color: self).green }
-    var blueValue: CGFloat{ return CIColor(color: self).blue }
-    var alphaValue: CGFloat{ return CIColor(color: self).alpha }
-
     func mixin(infusion: UIColor, alpha: CGFloat) -> UIColor {
         let alpha2 = min(1.0, max(0, alpha))
         let beta = 1.0 - alpha2
