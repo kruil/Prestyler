@@ -8,16 +8,16 @@
 import Foundation
 
 struct TextRule {
-    let appliedStyle: [Any]
+    let styles: [Any]
     var positions: [Int]
 
     var color: UIColor? {
-        for style in appliedStyle where style is UIColor {
+        for style in styles where style is UIColor {
             return style as? UIColor
         }
-        for style in appliedStyle where style is String {
+        for style in styles where style is String {
             if  let hexString = style as? String,
-                let color = hexStringToUIColor(hex: hexString ) {
+                let color = hexString.hexToUIColor() {
                 return color
             }
         }
@@ -25,7 +25,7 @@ struct TextRule {
     }
 
     var font: UIFont? {
-        for style in appliedStyle where style is UIFont {
+        for style in styles where style is UIFont {
             return style as? UIFont
         }
         return nil
@@ -33,7 +33,7 @@ struct TextRule {
 
     var fontSize: CGFloat {
         // if defined explicitly by Int return
-        for style in appliedStyle where style is Int {
+        for style in styles where style is Int {
             return CGFloat(style as! Int)
         }
         // or retrieve from font
@@ -63,37 +63,33 @@ struct TextRule {
                                   value: color,
                                   range: range)
             }
-            for style in appliedStyle {
+            for style in styles {
                 if let precolor = style as? Precolor {
-                    let type = precolor.isForeground ? NSAttributedString.Key.foregroundColor : NSAttributedString.Key.backgroundColor
-                    if precolor.random == 0 {
+                    let type: NSAttributedString.Key = precolor.isForeground ? .foregroundColor : .backgroundColor
+                    let ranges = precolor.random == 0 ? [range] : range.splitUnitary()
+                    for range in ranges {
                         text.addAttribute(type, value: precolor.colorToApply, range: range)
-                    } else {
-                        let splittedRange = range.splitUnitary()
-                        for range in splittedRange {
-                            text.addAttribute(type, value: precolor.colorToApply, range: range)
-                        }
                     }
                 }
             }
             // font and size
-            if appliedStyle.contains(where: { $0 is Int }) {
+            if styles.contains(where: { $0 is Int }) {
                 text.addAttributes([NSAttributedString.Key.font: UIFont.systemFont(ofSize: fontSize)], range: range)
             }
-            if appliedStyle.contains(where: { $0 as? Prestyle == .bold }) {
+            if styles.contains(where: { $0 as? Prestyle == .bold }) {
                 text.addAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: fontSize)], range: range)
             }
-            if appliedStyle.contains(where: { $0 as? Prestyle == .italic }) {
+            if styles.contains(where: { $0 as? Prestyle == .italic }) {
                 text.addAttributes([NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: fontSize)], range: range)
             }
             if let font = font {
                 text.addAttributes([NSAttributedString.Key.font: font], range: range)
             }
             // other properties
-            if appliedStyle.contains(where: { $0 as? Prestyle == .strikethrough }) {
+            if styles.contains(where: { $0 as? Prestyle == .strikethrough }) {
                 text.addAttribute(NSAttributedString.Key.strikethroughStyle, value: NSUnderlineStyle.single.rawValue, range: range)
             }
-            if appliedStyle.contains(where: { $0 as? Prestyle == .underline }) {
+            if styles.contains(where: { $0 as? Prestyle == .underline }) {
                 text.addAttribute(NSAttributedString.Key.underlineStyle, value: NSUnderlineStyle.single.rawValue, range: range)
             }
         }
@@ -113,15 +109,5 @@ struct TextRule {
             }
         }
         return ranges
-    }
-}
-
-extension NSRange {
-    func splitUnitary() -> [NSRange] {
-        var result = [NSRange]()
-        for index in 0..<self.length {
-            result.append(NSRange(location: self.location + index, length: 1))
-        }
-        return result
     }
 }

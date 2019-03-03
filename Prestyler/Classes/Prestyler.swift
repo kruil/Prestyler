@@ -17,24 +17,25 @@ public enum Prestyle {
 
 
 public class Prestyler {
-    struct STRule {
-        let appliedStyle: [Any]
+    struct Rule {
         let pattern: String
+        var styles: [Any]
     }
 
     static var defaultFontSize = 18
 
     static var rules = [
-        STRule(appliedStyle: [Prestyle.bold], pattern: "<b>"),
-        STRule(appliedStyle: [Prestyle.italic], pattern: "<i>"),
-        STRule(appliedStyle: [Prestyle.strikethrough], pattern: "<strike>"),
-        STRule(appliedStyle: [Prestyle.underline], pattern: "<underline>")
+        Rule(pattern: "<b>", styles: [Prestyle.bold]),
+        Rule(pattern: "<i>", styles: [Prestyle.italic]),
+        Rule(pattern: "<strike>", styles: [Prestyle.strikethrough]),
+        Rule(pattern: "<underline>", styles: [Prestyle.underline])
     ]
 
     // MARK: - Public methods
 
     static public func newRule(_ pattern: String, _ styles: Any...) {
-        rules.append(STRule(appliedStyle: styles, pattern: pattern))
+        rules.removeAll(where: { $0.pattern == pattern })
+        rules.append(Rule(pattern: pattern, styles: styles))
     }
 
     static public func removeAllRules() {
@@ -45,13 +46,12 @@ public class Prestyler {
 
     static func findTextRules(_ text: inout String) -> [TextRule] {
         var textRules = [TextRule]()
-        for r in rules {
-            var positions = text.indexes(of: r.pattern)
+        for rule in rules {
+            var positions = text.indexes(of: rule.pattern)
             if positions.count > 0 {
-                correctPositions(&positions, r.pattern.count, &textRules)
-                text = text.replacingOccurrences(of: r.pattern, with: "")
-                let appliedRule = TextRule(appliedStyle: r.appliedStyle, positions: positions)
-                textRules.append(appliedRule)
+                correctPositions(&positions, rule.pattern.count, &textRules)
+                text = text.replacingOccurrences(of: rule.pattern, with: "")
+                textRules.append(TextRule(styles: rule.styles, positions: positions))
             }
         }
         return textRules
@@ -79,57 +79,5 @@ public class Prestyler {
         for index in 1..<positions.count where index > 0 {
             positions[index] = positions[index] - length * index
         }
-    }
-}
-
-func hexStringToUIColor(hex: String) -> UIColor? {
-    var cString = hex.trimmingCharacters(in: .whitespacesAndNewlines).uppercased()
-    cString = cString.replacingOccurrences(of: "#", with: "")
-    if cString.count == 3 {
-        let r = cString.character(at: 0) ?? "0"
-        let g = cString.character(at: 1) ?? "0"
-        let b = cString.character(at: 2) ?? "0"
-        cString = "\(r)\(r)\(g)\(g)\(b)\(b)"
-    }
-    if cString.count != 6 {
-        return nil
-    }
-
-    var rgbValue: UInt32 = 0
-    Scanner(string: cString).scanHexInt32(&rgbValue)
-
-    return UIColor(
-        red: CGFloat((rgbValue & 0xFF0000) >> 16) / 255.0,
-        green: CGFloat((rgbValue & 0x00FF00) >> 8) / 255.0,
-        blue: CGFloat(rgbValue & 0x0000FF) / 255.0,
-        alpha: CGFloat(1.0)
-    )
-}
-
-extension String {
-    func index(at position: Int, from start: Index? = nil) -> Index? {
-        let startingIndex = start ?? startIndex
-        return index(startingIndex, offsetBy: position, limitedBy: endIndex)
-    }
-
-    func character(at position: Int) -> Character? {
-        guard position >= 0, let indexPosition = index(at: position) else {
-            return nil
-        }
-        return self[indexPosition]
-    }
-}
-
-extension StringProtocol where Index == String.Index {
-    func indexes(of string: Self, options: String.CompareOptions = []) -> [Int] {
-        var result: [Int] = []
-        var start = startIndex
-        while start < endIndex,
-            let range = self[start..<endIndex].range(of: string, options: options) {
-                result.append(range.lowerBound.encodedOffset)
-                start = range.lowerBound < range.upperBound ? range.upperBound :
-                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
-        }
-        return result
     }
 }

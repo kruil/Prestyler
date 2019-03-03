@@ -20,10 +20,11 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // use predefined rules
-        label1.attributedText = "Hello <red>world<red>! I <strike>am<strike> a <b>cool<b> pod for Swift.".prestyled()
-        // or define custom
-        Prestyler.newRule("$", UIColor.orange, Prestyle.italic,  33)
+
+        Prestyler.newRule("<red>", UIColor.red, Prestyle.bold,  22)
+        label1.attributedText = "<red>Hello world!<red> I <strike>am<strike> a <b>cool<b> pod for Swift.".prestyled()
+
+        Prestyler.newRule("$", UIFont.italicSystemFont(ofSize: 33), UIColor.orange)
         label2.attributedText = "Style $all text$ in an <i>easy way<i>.".prestyled()
 
         Prestyler.newRule("<yellowOnBlue>", UIColor.blue, Precolor(.yellow).forBackgound(), Prestyle.bold)
@@ -33,7 +34,7 @@ class ViewController: UIViewController {
         Prestyler.newRule("*", "#f0f")
         label4.attributedText = "Custom <coolgreen>colors<coolgreen> and *different* rules.".prestyled()
 
-        Prestyler.newRule("<mixed>", Precolor(.red).random(40), 33)
+        Prestyler.newRule("<mixed>", Precolor(.red).random(50), 33)
         label5.attributedText = "<mixed>Create cool effects<mixed> ".prestyled()
 
         Prestyler.newRule("<random>", "#fff", Precolor().random().forBackgound(), 48)
