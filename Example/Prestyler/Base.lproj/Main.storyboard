@@ -22,7 +22,7 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="tVs-en-bGw">
-                                <rect key="frame" x="161.5" y="142" width="52.5" height="283"/>
+                                <rect key="frame" x="161.5" y="116" width="52.5" height="335.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label1" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJP-FZ-mVJ">
                                         <rect key="frame" x="0.0" y="0.0" width="52.5" height="20.5"/>
@@ -60,6 +60,12 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label7" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjK-R8-X2t">
+                                        <rect key="frame" x="0.0" y="315" width="52.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                             </stackView>
                         </subviews>
@@ -76,6 +82,7 @@
                         <outlet property="label4" destination="MaQ-Ah-hPf" id="sva-mC-iox"/>
                         <outlet property="label5" destination="I2c-Ou-PYL" id="V6S-tc-7pO"/>
                         <outlet property="label6" destination="ssR-Q2-Cnj" id="4KT-mV-3XC"/>
+                        <outlet property="label7" destination="bjK-R8-X2t" id="wwW-vx-Hy1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
