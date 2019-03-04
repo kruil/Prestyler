@@ -33,7 +33,7 @@ public class Prestyler {
 
     // MARK: - Public methods
 
-    static public func newRule(_ pattern: String, _ styles: Any...) {
+    static public func defineRule(_ pattern: String, _ styles: Any...) {
         rules.removeAll(where: { $0.pattern == pattern })
         rules.append(Rule(pattern: pattern, styles: styles))
     }

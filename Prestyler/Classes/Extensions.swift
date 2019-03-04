@@ -15,6 +15,17 @@ public extension String {
         appliedRules.forEach { $0.applyTo(text: &resultedText) }
         return resultedText
     }
+
+    func prestyledBy(rule: String) -> NSAttributedString {
+        return (rule + self + rule).prestyled()
+    }
+
+    func prestyledBy(styles: Any...) -> NSAttributedString {
+        let rule = TextRule(styles: styles, positions: [0, self.count])
+        var resultedText =  NSMutableAttributedString(string: self)
+        rule.applyTo(text: &resultedText)
+        return resultedText
+    }
 }
 
 extension String {
