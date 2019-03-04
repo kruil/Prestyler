@@ -1,7 +1,7 @@
 ![Prestyler: Swift text styler](https://github.com/kruil/Prestyler/blob/master/logo.png?raw=true)
 [![CI Status](https://img.shields.io/travis/kruil/Prestyler.svg?style=flat)](https://travis-ci.org/kruil/Prestyler)
-[![Version](https://img.shields.io/cocoapods/v/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 [![Swift Version](https://img.shields.io/badge/language-swift%204.2-brightgreen.svg)](https://developer.apple.com/swift)
+[![Version](https://img.shields.io/cocoapods/v/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 [![License](https://img.shields.io/cocoapods/l/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 [![Platform](https://img.shields.io/cocoapods/p/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 
