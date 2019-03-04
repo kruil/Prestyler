@@ -21,7 +21,7 @@ public extension String {
     }
 
     func prestyledBy(styles: Any...) -> NSAttributedString {
-        let rule = TextRule(styles: styles, positions: [0, self.count])
+        let rule = TextRule(styles: styles, positions: [0, self.count-1])
         var resultedText =  NSMutableAttributedString(string: self)
         rule.applyTo(text: &resultedText)
         return resultedText
