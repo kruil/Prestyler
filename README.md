@@ -26,13 +26,12 @@ Prestyler.defineRule("$", Prestyle.bold, Prestyle.underline, UIColor.red)
 label.attributedText = "Prestyler do $everything$ instead of you.".prestyled()
 ```
 
-### Requirements
+### Requirements and installation
 
 - iOS 9.2+ / macOS 10.12+ / tvOS 10.0+ / watchOS 3.0+
 - Xcode 10.1+
 - Swift 4.0+
 
-### Installation
 Prestyler is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
 
@@ -58,11 +57,13 @@ Prestyler.defineRule("myRule", UIColor.green)
 ...
 label.attributedText = "All this text is bold.".prestyledBy(rule: "myRule")
 ```
+
 ### Predefined rules
 Several rules already defined. It's a **\<b>** for bold, **\<i>** for italic, **\<strike>** and **\<underline>** .
 ``` swift
 label.attributedText = "And here is <i>italic<i> text!".prestyled()
 ```
+
 ### Custom rules
 You can easy define your own simple rules.
 ``` swift
