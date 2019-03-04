@@ -114,8 +114,8 @@ Prestyler.defineRule("<random>", Precolor().random())
 - When you define already existing style the old one would replaced.
 
 ## Example
-
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+![Prestyler: Swift text styler](https://raw.githubusercontent.com/kruil/Prestyler/master/screenshot1.png?raw=true)
 
 ## Author
 

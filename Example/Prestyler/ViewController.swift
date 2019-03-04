@@ -22,10 +22,10 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // use predefined rules:
-        label1.attributedText = "<b>Hello world!<b> I am a cool pod for <underline>Swift<underline>.".prestyled()
+        label1.attributedText = "<b>Hello world!<b> I'm a cool <underline>cocoapod<underline>.".prestyled()
 
         // or define your owns:
-        Prestyler.defineRule("$", 28, UIColor.orange, Prestyle.italic)
+        Prestyler.defineRule("$", 32, UIColor.orange, Prestyle.italic)
         label2.attributedText = "Style $text$ in an easy way.".prestyled()
 
         Prestyler.defineRule("<yellowOnBlue>", UIColor.blue, Prestyle.bold)
@@ -35,8 +35,8 @@ class ViewController: UIViewController {
         Prestyler.defineRule("<coolgreen>", Precolor("#550"), Precolor("#a7f442").forBackgound())
         label4.attributedText = "Custom <coolgreen>colors<coolgreen> and different rules.".prestyled()
 
-        Prestyler.defineRule("<mixed>", Precolor(.red).random(50), 33)
-        Prestyler.defineRule("<random>", "#fff", Precolor().random().forBackgound(), 36)
+        Prestyler.defineRule("<mixed>", Precolor(.red).random(50), 44)
+        Prestyler.defineRule("<random>", "#fff", Precolor().random().forBackgound(), 44)
         label5.attributedText = "<mixed>Create cool<mixed> <random>effects<random>".prestyled()
 
         // You can easy style any text without tags by rule name or style list
