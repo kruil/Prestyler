@@ -8,17 +8,14 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Prestyler'
-  s.version          = '0.1.0'
-  s.summary          = 'Tiny attributedString creator.'
+  s.version          = '1.0.0'
+  s.summary          = 'Elegant text formatting tool in Swift'
   s.homepage         = 'https://github.com/kruil/Prestyler'
   s.swift_version    = '4.2'
-  # s.screenshots     = 'www.example.com/screenshots_1', 'www.example.com/screenshots_2'
   s.license          = { :type => 'MIT', :file => 'LICENSE' }
   s.author           = { 'Ilia Krupko' => '' }
   s.source           = { :git => 'https://github.com/kruil/Prestyler.git', :tag => s.version.to_s }
-  # s.social_media_url = 'https://twitter.com/<TWITTER_USERNAME>'
-  s.ios.deployment_target = '8.0'
+  s.ios.deployment_target = '9.0'
   s.source_files = 'Prestyler/Classes/*.swift'
-  # s.public_header_files = 'Pod/Classes/**/*.h'
   s.frameworks = 'UIKit'
 end

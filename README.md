@@ -1,10 +1,11 @@
 ![Prestyler: Swift text styler](https://github.com/kruil/Prestyler/blob/master/logo.png?raw=true)
 [![CI Status](https://img.shields.io/travis/kruil/Prestyler.svg?style=flat)](https://travis-ci.org/kruil/Prestyler)
 [![Version](https://img.shields.io/cocoapods/v/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
+[![Swift Version](https://img.shields.io/badge/language-swift%204.2-brightgreen.svg)](https://developer.apple.com/swift)
 [![License](https://img.shields.io/cocoapods/l/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 [![Platform](https://img.shields.io/cocoapods/p/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 
-Prestyler is a text formatting library which based on original NSAttributedString class. It simplifies and extends original workflow, giving you clean and short syntax.
+Prestyler is a text formatting library which is based on original NSAttributedString class. It simplifies and extends original workflow, giving you clean and short syntax.
 
 ---
 
@@ -28,9 +29,9 @@ label.attributedText = "Prestyler do $everything$ instead of you.".prestyled()
 
 ### Requirements and installation
 
-- iOS 9.2+ / macOS 10.12+ / tvOS 10.0+ / watchOS 3.0+
-- Xcode 10.1+
-- Swift 4.0+
+- iOS 9.0+
+- Xcode 10.0+
+- Swift 4.2+
 
 Prestyler is available through [CocoaPods](https://cocoapods.org). To install
 it, simply add the following line to your Podfile:
@@ -107,14 +108,15 @@ Prestyler.defineRule("<randomRed>", Precolor(UIColor.red).random(50))
 Prestyler.defineRule("<random>", Precolor().random())
 ```
 
-## Few things you need to know
+### Few things you need to know
 
 - Don't put a tag inside other tags. Results can be unexpectable (but safe). Instead just create new Rule with desired style.
 - Adding same styles to rule like `Prestyler.defineRule("$", UIColor.yellow, UIColor.green)` has no effect. There will be applied just a last one.
 - When you define already existing style the old one would replaced.
 
-## Example
+# Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
+
 ![Prestyler: Swift text styler](https://raw.githubusercontent.com/kruil/Prestyler/master/screenshot1.png?raw=true)
 
 ## Author
