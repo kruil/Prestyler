@@ -21,24 +21,25 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        Prestyler.newRule("<red>", UIColor.red, Prestyle.bold,  22)
+        Prestyler.defineRule("<red>", UIColor.red, Prestyle.bold,  22)
         label1.attributedText = "<red>Hello world!<red> I <strike>am<strike> a <b>cool<b> pod for Swift.".prestyled()
 
-        Prestyler.newRule("$", UIFont.italicSystemFont(ofSize: 33), UIColor.orange)
+        Prestyler.defineRule("$", UIFont.italicSystemFont(ofSize: 33), UIColor.orange)
         label2.attributedText = "Style $all text$ in an <i>easy way<i>.".prestyled()
 
-        Prestyler.newRule("<yellowOnBlue>", UIColor.blue, Precolor(.yellow).forBackgound(), Prestyle.bold)
+        Prestyler.defineRule("<yellowOnBlue>", UIColor.blue, Precolor(.yellow).forBackgound(), Prestyle.bold)
         label3.attributedText = "<yellowOnBlue> Quick <yellowOnBlue> and <underline>free<underline> for use.".prestyled()
 
-        Prestyler.newRule("<coolgreen>", Precolor("#550"), Precolor("#a7f442").forBackgound())
-        Prestyler.newRule("*", "#f0f")
+        Prestyler.defineRule("<coolgreen>", Precolor("#550"), Precolor("#a7f442").forBackgound())
+        Prestyler.defineRule("*", "#f0f")
         label4.attributedText = "Custom <coolgreen>colors<coolgreen> and *different* rules.".prestyled()
 
-        Prestyler.newRule("<mixed>", Precolor(.red).random(50), 33)
+        Prestyler.defineRule("<mixed>", Precolor(.red).random(50), 33)
         label5.attributedText = "<mixed>Create cool effects<mixed> ".prestyled()
 
-        Prestyler.newRule("<random>", "#fff", Precolor().random().forBackgound(), 48)
-        label6.attributedText = "<random>in a moment!<random>".prestyled()
+        Prestyler.defineRule("<random>", "#fff", Precolor().random().forBackgound(), 48)
+        label6.attributedText = "Prestyler".prestyledBy(rule: "<random>")
+        //§label6.attributedText = "Prestyler".prestyledBy(styles: UIColor.green)
     }
 }
 
