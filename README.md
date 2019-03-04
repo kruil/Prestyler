@@ -8,19 +8,19 @@ Prestyler is a text formatting library which based on original NSAttributedStrin
 
 ---
 
-Actually, Prestyler allows you to replace this code
+Before Prestyler
 ``` swift
 let baseString = "It is a pain to use attributed strings in ios."
 let attributedString = NSMutableAttributedString(string: baseString, attributes: nil)
 let painWord = (attributedString.string as NSString).range(of: "pain")
 let attributes: [NSAttributedStringKey : Any] = [
-NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18),
-NSAttributedStringKey.underlineStyle : 2,
-NSAttributedStringKey.foregroundColor : UIColor.red]
+    NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18),
+    NSAttributedStringKey.underlineStyle : 2,
+    NSAttributedStringKey.foregroundColor : UIColor.red]
 attributedString.setAttributes(attributes, range: painWord)
 label.attributedText = attributedString
 ```
-to
+after
 ``` swift
 Prestyler.defineRule("$", Prestyle.bold, Prestyle.underline, UIColor.red)
 label.attributedText = "Prestyler do $everything$ instead of you.".prestyled()
@@ -75,14 +75,12 @@ Prestyler.defineRule("<BigYellowBold>", 48, UIColor.yellow, Prestyle.bold)
 label.attributedText = "It's a <BigYellowBold>green<BigYellowBold> text.".prestyled()
 ```
 When you define a rule first parameter is a pattern to search in `String` format, and then you put list of styles. To define a style you can use next classes:
-``` swift
-* Prestyle.bold // .italic, .strike, .underline
-* Precolor(.red) // Precolor("#af45392"), Precolor().random . Read more about colors below
-* UIFont // UIFont.italicSystemFont(ofSize: 33)
-* UIColor // UIColor.green
-* String // "432" or "#432"or "#648362" treated as hex color
-* Int // 18, treated as a font size
-```
+> Prestyle.bold // .italic, .strike, .underline
+> Precolor(.red) // Precolor("#af45392"), Precolor().random . Read more about colors below
+> UIFont // UIFont.italicSystemFont(ofSize: 33)
+> UIColor // UIColor.green
+> String // "432" or "#432"or "#648362" treated as hex color
+> Int // 18, treated as a font size
 
 ### Working with colors 🎨
 There are several ways you can manage colors in Prestyler. The easiest one is just to pass `UIColor` or hex string as a style:
