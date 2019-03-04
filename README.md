@@ -15,9 +15,9 @@ let baseString = "It is a pain to use attributed strings in ios."
 let attributedString = NSMutableAttributedString(string: baseString, attributes: nil)
 let painWord = (attributedString.string as NSString).range(of: "pain")
 let attributes: [NSAttributedStringKey : Any] = [
-NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18),
-NSAttributedStringKey.underlineStyle : 2,
-NSAttributedStringKey.foregroundColor : UIColor.red]
+    NSAttributedStringKey.font : UIFont.boldSystemFont(ofSize: 18),
+    NSAttributedStringKey.underlineStyle : 2,
+    NSAttributedStringKey.foregroundColor : UIColor.red]
 attributedString.setAttributes(attributes, range: painWord)
 label.attributedText = attributedString
 ```
