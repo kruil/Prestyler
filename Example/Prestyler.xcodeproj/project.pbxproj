@@ -29,7 +29,6 @@
 
 /* Begin PBXFileReference section */
 		0E9523E31BA9C86DFD69F0B8 /* Pods_Prestyler_Example.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prestyler_Example.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		2E170C0F7A2C6C8F9B8FA46D /* LICENSE */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text; name = LICENSE; path = ../LICENSE; sourceTree = "<group>"; };
 		2FEBCAE621E0B43E51E76D67 /* Pods_Prestyler_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prestyler_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		55290938B9D8C1DDA2325DCD /* Pods-Prestyler_Example.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prestyler_Example.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Prestyler_Example/Pods-Prestyler_Example.debug.xcconfig"; sourceTree = "<group>"; };
 		5D115F174A36A6364FF2B7F9 /* Pods-Prestyler_Tests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Prestyler_Tests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Prestyler_Tests/Pods-Prestyler_Tests.release.xcconfig"; sourceTree = "<group>"; };
@@ -143,7 +142,6 @@
 			children = (
 				EBA7A5B7D7BB1838F41FB47B /* Prestyler.podspec */,
 				FB7B15A898B61D56E7B80F39 /* README.md */,
-				2E170C0F7A2C6C8F9B8FA46D /* LICENSE */,
 			);
 			name = "Podspec Metadata";
 			sourceTree = "<group>";

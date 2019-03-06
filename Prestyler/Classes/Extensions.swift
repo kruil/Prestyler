@@ -7,7 +7,13 @@
 
 import Foundation
 
+
+/// Prestyler uses a public extension to provide access to string formatting. Next methods can be used for every string.
 public extension String {
+
+    /// Convert string to attributed string by looking for embeded tag and find sutable patterns.
+    ///
+    /// - Returns: Attributed string
     func prestyled() -> NSAttributedString {
         var textToStyle = self
         let appliedRules = Prestyler.findTextRules(&textToStyle)
@@ -16,10 +22,18 @@ public extension String {
         return resultedText
     }
 
+    /// Convert string to attributed string by using provided rule pattern.
+    ///
+    /// - Parameter rule: pattern rule to apply
+    /// - Returns: attributed string
     func prestyledBy(rule: String) -> NSAttributedString {
         return (rule + self + rule).prestyled()
     }
 
+    /// Convert string to attributed string by using provided styles.
+    ///
+    /// - Parameter styles: styles to apply
+    /// - Returns: attributed string
     func prestyledBy(styles: Any...) -> NSAttributedString {
         let rule = TextRule(styles: styles, positions: [0, self.count-1])
         var resultedText =  NSMutableAttributedString(string: self)

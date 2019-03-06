@@ -8,14 +8,20 @@
 import Foundation
 
 
+/// This enumeration can be used to describe Rule styles.
 public enum Prestyle {
+    /// Bold text
     case bold
+    /// Italic text
     case italic
+    /// Strikethrough text
     case strikethrough
+    /// Underline text
     case underline
 }
 
 
+/// Prestyler provides static methods to manage rules.
 public class Prestyler {
     struct Rule {
         let pattern: String
@@ -33,11 +39,17 @@ public class Prestyler {
 
     // MARK: - Public methods
 
+    /// Defines new rule using patters and styles to apply.
+    ///
+    /// - Parameters:
+    ///   - pattern: pattern, for example "<red>"
+    ///   - styles: can be objects of sdifferent types, including Int, UIColor, Prestyle etc.
     static public func defineRule(_ pattern: String, _ styles: Any...) {
         rules.removeAll(where: { $0.pattern == pattern })
         rules.append(Rule(pattern: pattern, styles: styles))
     }
 
+    ///
     static public func removeAllRules() {
         rules.removeAll()
     }

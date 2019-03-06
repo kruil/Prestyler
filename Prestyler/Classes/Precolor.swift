@@ -8,6 +8,7 @@
 import Foundation
 
 
+/// Precolor helps to manage color information for Rule styles. By using precolor you can define background and foreground text colors, and also make some interesting effects.
 public class Precolor {
     private let color: UIColor
     var isForeground = true
@@ -22,24 +23,29 @@ public class Precolor {
 
     //MARK: - Public methods
 
+    /// Initialize new Precolor with random color
     public init() {
         color = UIColor.red
         random = 100
     }
 
+    /// Initialize new Precolor with provided color
     public init(_ color: UIColor) {
         self.color = color
     }
 
+    /// Initialize new Precolor with provided string color in hex format. For example "#234" or "#5463ff"
     public init(_ hexString: String) {
         self.color = hexString.hexToUIColor() ?? Constants.errorColor
     }
 
+    /// Precolor will effect to background text color instead of foreground.
     public func forBackgound() -> Precolor {
         isForeground = false
         return self
     }
 
+    /// Set percent which defines how much random color should effect original color.
     public func random(_ percent: Int = 100) -> Precolor {
         self.random = percent
         return self

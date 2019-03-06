@@ -1,0 +1,5 @@
+xcodebuild_arguments:
+    - "-workspace"
+    - "Example/Prestyler.xcworkspace"
+    - "-scheme"
+    - "Prestyler-Example"

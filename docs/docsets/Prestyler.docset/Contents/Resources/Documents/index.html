@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Prestyler  Reference</title>
+    <link rel="stylesheet" type="text/css" href="css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="js/jquery.min.js" defer></script>
+    <script src="js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a title="Prestyler  Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="index.html">Prestyler Docs</a> (100% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="index.html">Prestyler Reference</a>
+        <img id="carat" src="img/carat.png" />
+        Prestyler  Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Classes/Precolor.html">Precolor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/Prestyler.html">Prestyler</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/Prestyle.html">Prestyle</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Extensions/String.html">String</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            
+            <p><img src="https://github.com/kruil/Prestyler/blob/master/logo.png?raw=true" alt="Prestyler: Swift text styler">
+<a href="https://travis-ci.org/kruil/Prestyler"><img src="https://img.shields.io/travis/kruil/Prestyler.svg?style=flat" alt="CI Status"></a>
+<a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-swift%204.2-brightgreen.svg" alt="Swift Version"></a>
+<a href="https://cocoapods.org/pods/Prestyler"><img src="https://img.shields.io/cocoapods/v/Prestyler.svg?style=flat" alt="Version"></a>
+<a href="https://cocoapods.org/pods/Prestyler"><img src="https://img.shields.io/cocoapods/l/Prestyler.svg?style=flat" alt="License"></a>
+<a href="https://cocoapods.org/pods/Prestyler"><img src="https://img.shields.io/cocoapods/p/Prestyler.svg?style=flat" alt="Platform"></a></p>
+
+<p>Prestyler is a text formatting library which is based on original NSAttributedString class. It simplifies and extends original workflow, giving you clean and short syntax.</p>
+
+<hr>
+
+<p>Actually, Prestyler allows you to replace this code</p>
+<pre class="highlight swift"><code><span class="k">let</span> <span class="nv">baseString</span> <span class="o">=</span> <span class="s">"It is a pain to use attributed strings in ios."</span>
+<span class="k">let</span> <span class="nv">attributedString</span> <span class="o">=</span> <span class="nf">NSMutableAttributedString</span><span class="p">(</span><span class="nv">string</span><span class="p">:</span> <span class="n">baseString</span><span class="p">,</span> <span class="nv">attributes</span><span class="p">:</span> <span class="kc">nil</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">painWord</span> <span class="o">=</span> <span class="p">(</span><span class="n">attributedString</span><span class="o">.</span><span class="n">string</span> <span class="k">as</span> <span class="kt">NSString</span><span class="p">)</span><span class="o">.</span><span class="nf">range</span><span class="p">(</span><span class="nv">of</span><span class="p">:</span> <span class="s">"pain"</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">attributes</span><span class="p">:</span> <span class="p">[</span><span class="kt">NSAttributedStringKey</span> <span class="p">:</span> <span class="kt">Any</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="kt">NSAttributedStringKey</span><span class="o">.</span><span class="nv">font</span> <span class="p">:</span> <span class="kt">UIFont</span><span class="o">.</span><span class="nf">boldSystemFont</span><span class="p">(</span><span class="nv">ofSize</span><span class="p">:</span> <span class="mi">18</span><span class="p">),</span>
+    <span class="kt">NSAttributedStringKey</span><span class="o">.</span><span class="nv">underlineStyle</span> <span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
+    <span class="kt">NSAttributedStringKey</span><span class="o">.</span><span class="nv">foregroundColor</span> <span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="p">]</span>
+<span class="n">attributedString</span><span class="o">.</span><span class="nf">setAttributes</span><span class="p">(</span><span class="n">attributes</span><span class="p">,</span> <span class="nv">range</span><span class="p">:</span> <span class="n">painWord</span><span class="p">)</span>
+<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">attributedString</span>
+</code></pre>
+
+<p>to</p>
+<pre class="highlight swift"><code><span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"$"</span><span class="p">,</span> <span class="kt">Prestyle</span><span class="o">.</span><span class="n">bold</span><span class="p">,</span> <span class="kt">Prestyle</span><span class="o">.</span><span class="n">underline</span><span class="p">,</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="p">)</span>
+<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"Prestyler do $everything$ instead of you."</span><span class="o">.</span><span class="nf">prestyled</span><span class="p">()</span>
+</code></pre>
+<h3 id='requirements-and-installation' class='heading'>Requirements and installation</h3>
+
+<ul>
+<li>iOS 9.0+</li>
+<li>Xcode 10.0+</li>
+<li>Swift 4.2+</li>
+</ul>
+
+<p>Prestyler is available through <a href="https://cocoapods.org">CocoaPods</a>. To install
+it, simply add the following line to your Podfile:</p>
+<pre class="highlight ruby"><code><span class="n">pod</span> <span class="s1">'Prestyler'</span>
+</code></pre>
+<h1 id='how-to-use' class='heading'>How to use</h1>
+
+<p>Prestyler parse your string, applies defined rules, and gives <code>NSAttributedString</code> as a result:</p>
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">Prestyler</span>
+<span class="o">...</span>
+<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"Hello, i am &lt;b&gt;bold&lt;b&gt; text!"</span><span class="o">.</span><span class="nf">prestyled</span><span class="p">()</span>
+</code></pre>
+
+<p>You also can style a text directly by listing its styles:</p>
+<pre class="highlight swift"><code><span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"Prestyler"</span><span class="o">.</span><span class="nf">prestyledBy</span><span class="p">(</span><span class="nv">styles</span><span class="p">:</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">green</span><span class="p">)</span>
+</code></pre>
+
+<p>Or by defined rules:</p>
+<pre class="highlight swift"><code><span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"myRule"</span><span class="p">,</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">green</span><span class="p">)</span>
+<span class="o">...</span>
+<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"All this text is bold."</span><span class="o">.</span><span class="nf">prestyledBy</span><span class="p">(</span><span class="nv">rule</span><span class="p">:</span> <span class="s">"myRule"</span><span class="p">)</span>
+</code></pre>
+<h3 id='predefined-rules' class='heading'>Predefined rules</h3>
+
+<p>Several rules already defined. It&rsquo;s a <strong>&lt;b&gt;</strong> for bold, <strong>&lt;i&gt;</strong> for italic, <strong>&lt;strike&gt;</strong> and <strong>&lt;underline&gt;</strong> .</p>
+<pre class="highlight swift"><code><span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"And here is &lt;i&gt;italic&lt;i&gt; text!"</span><span class="o">.</span><span class="nf">prestyled</span><span class="p">()</span>
+</code></pre>
+<h3 id='custom-rules' class='heading'>Custom rules</h3>
+
+<p>You can easy define your own simple rules.</p>
+<pre class="highlight swift"><code><span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"$"</span><span class="p">,</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">green</span><span class="p">)</span>
+<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"It's a $green$ text."</span><span class="o">.</span><span class="nf">prestyled</span><span class="p">()</span>
+</code></pre>
+
+<p>or more complex with different styles combination:</p>
+<pre class="highlight swift"><code><span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;BigYellowBold&gt;"</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">yellow</span><span class="p">,</span> <span class="kt">Prestyle</span><span class="o">.</span><span class="n">bold</span><span class="p">)</span>
+<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"It's a &lt;BigYellowBold&gt;green&lt;BigYellowBold&gt; text."</span><span class="o">.</span><span class="nf">prestyled</span><span class="p">()</span>
+</code></pre>
+
+<p>When you define a rule first parameter is a pattern to search in <code>String</code> format, and then you put list of styles. To define a style you can use next classes:</p>
+<pre class="highlight swift"><code><span class="o">*</span> <span class="kt">Prestyle</span><span class="o">.</span><span class="n">bold</span> <span class="c1">// .italic, .strike, .underline</span>
+<span class="o">*</span> <span class="nf">Precolor</span><span class="p">(</span><span class="o">.</span><span class="n">red</span><span class="p">)</span> <span class="c1">// Precolor("#af45392"), Precolor().random . Read more about colors below</span>
+<span class="o">*</span> <span class="kt">UIFont</span> <span class="c1">// UIFont.italicSystemFont(ofSize: 33)</span>
+<span class="o">*</span> <span class="kt">UIColor</span> <span class="c1">// UIColor.green</span>
+<span class="o">*</span> <span class="kt">String</span> <span class="c1">// "432" or "#432"or "#648362" treated as hex color</span>
+<span class="o">*</span> <span class="kt">Int</span> <span class="c1">// 18, treated as a font size</span>
+</code></pre>
+<h3 id='working-with-colors' class='heading'>Working with colors 🎨</h3>
+
+<p>There are several ways you can manage colors in Prestyler. The easiest one is just to pass <code>UIColor</code> or hex string as a style:</p>
+<pre class="highlight swift"><code><span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;colored&gt;"</span><span class="p">,</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">yellow</span><span class="p">)</span>
+<span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;colored&gt;"</span><span class="p">,</span> <span class="s">"#b5e253"</span><span class="p">)</span>
+<span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;colored&gt;"</span><span class="p">,</span> <span class="s">"#ff0"</span><span class="p">)</span>
+<span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;colored&gt;"</span><span class="p">,</span> <span class="s">"ff2"</span><span class="p">)</span>
+</code></pre>
+
+<p>This colors would be applied to foreground text color. To set a background color you have to use <code><a href="Classes/Precolor.html">Precolor</a></code> class, which has several more interesting options.</p>
+<pre class="highlight swift"><code><span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;colored&gt;"</span><span class="p">,</span> <span class="nf">Precolor</span><span class="p">(</span><span class="kt">UIColor</span><span class="o">.</span><span class="n">yellow</span><span class="p">)</span><span class="o">.</span><span class="nf">forBackgound</span><span class="p">())</span>
+<span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;colored&gt;"</span><span class="p">,</span> <span class="nf">Precolor</span><span class="p">(</span><span class="s">"#b5e253"</span><span class="p">)</span><span class="o">.</span><span class="nf">forBackgound</span><span class="p">())</span>
+<span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;colored&gt;"</span><span class="p">,</span> <span class="nf">Precolor</span><span class="p">(</span><span class="s">"#ff0"</span><span class="p">)</span><span class="o">.</span><span class="nf">forBackgound</span><span class="p">())</span>
+</code></pre>
+
+<p><code><a href="Classes/Precolor.html">Precolor</a></code> has a <code>random(_ percent: Int)</code> method which allows you to get cool effects in seconds.</p>
+<pre class="highlight swift"><code><span class="c1">// Color is mixed for 50% with random color</span>
+<span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;randomRed&gt;"</span><span class="p">,</span> <span class="nf">Precolor</span><span class="p">(</span><span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="p">)</span><span class="o">.</span><span class="nf">random</span><span class="p">(</span><span class="mi">50</span><span class="p">))</span>
+<span class="c1">// 100% random</span>
+<span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"&lt;random&gt;"</span><span class="p">,</span> <span class="nf">Precolor</span><span class="p">()</span><span class="o">.</span><span class="nf">random</span><span class="p">())</span>
+</code></pre>
+<h3 id='few-things-you-need-to-know' class='heading'>Few things you need to know</h3>
+
+<ul>
+<li>Don&rsquo;t put a tag inside other tags. Results can be unexpectable (but safe). Instead just create new Rule with desired style.</li>
+<li>Adding same styles to rule like <code>Prestyler.defineRule(&quot;$&quot;, UIColor.yellow, UIColor.green)</code> has no effect. There will be applied just a last one.</li>
+<li>When you define already existing style the old one would replaced.</li>
+</ul>
+<h1 id='example' class='heading'>Example</h1>
+
+<p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
+
+<p><img src="https://raw.githubusercontent.com/kruil/Prestyler/master/screenshot1.png?raw=true" alt="Prestyler: Swift text styler"></p>
+<h2 id='author' class='heading'>Author</h2>
+
+<p>Ilia Krupko</p>
+<h2 id='license' class='heading'>License</h2>
+
+<p>Prestyler is available under the MIT license. See the LICENSE file for more info.</p>
+
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2019 <a class="link" href="https://github.com/kruil/Prestyler" target="_blank" rel="external">Ilia Krupko</a>. All rights reserved. (Last updated: 2019-03-06)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
