@@ -2,11 +2,12 @@
 [![CI Status](https://img.shields.io/travis/kruil/Prestyler.svg?style=flat)](https://travis-ci.org/kruil/Prestyler)
 [![Swift Version](https://img.shields.io/badge/language-swift%204.2-brightgreen.svg)](https://developer.apple.com/swift)
 [![Documentation](https://github.com/kruil/Prestyler/blob/master/docs/badge.svg)](https://kruil.github.io/Prestyler)
+[![License](https://img.shields.io/github/license/kruil/prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
+[![Size](https://img.shields.io/github/languages/code-size/kruil/prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 [![Version](https://img.shields.io/cocoapods/v/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
-[![License](https://img.shields.io/cocoapods/l/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 [![Platform](https://img.shields.io/cocoapods/p/Prestyler.svg?style=flat)](https://cocoapods.org/pods/Prestyler)
 
-Prestyler is a text styling library which is based on original NSAttributedString class. It simplifies and extends original workflow, giving you more clean and short syntax. You can find full [documentation](https://kruil.github.io/Prestyler) here. Please check it out and leave your feedback! 
+Prestyler is a text styling library which is based on original NSAttributedString class. It simplifies and extends original workflow, giving you more clean and short syntax. You can find full [documentation](https://kruil.github.io/Prestyler) here. Please check it out and leave your feedback!
 
 ---
 
