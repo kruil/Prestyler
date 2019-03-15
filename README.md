@@ -1,4 +1,7 @@
+
 ![Prestyler: Swift text styler](https://github.com/kruil/Prestyler/blob/master/logo.png?raw=true)
+
+
 [![CI Status](https://img.shields.io/travis/kruil/Prestyler.svg?style=flat)](https://travis-ci.org/kruil/Prestyler)
 [![Swift Version](https://img.shields.io/badge/language-swift%204.2-brightgreen.svg)](https://developer.apple.com/swift)
 [![Documentation](https://github.com/kruil/Prestyler/blob/master/docs/badge.svg)](https://kruil.github.io/Prestyler)
