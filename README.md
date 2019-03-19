@@ -15,7 +15,7 @@ Prestyler is a text styling library which is based on original NSAttributedStrin
 
 ---
 
-Actually, Prestyler allows you to replace this code
+Prestyler allows you to replace this code
 ``` swift
 let baseString = "It is a pain to use attributed strings in ios."
 let attributedString = NSMutableAttributedString(string: baseString, attributes: nil)
@@ -35,19 +35,21 @@ label.attributedText = "Prestyler does $everything$ for you.".prestyled()
 
 ---
 
-### Requirements and installation
+# Requirements and installation
 
 - iOS 9.0+
 - Xcode 10.0+
 - Swift 4.2+
 
-Prestyler is available through [CocoaPods](https://cocoapods.org). To install
-it, simply add the following line to your Podfile:
-
+[CocoaPods](https://cocoapods.org) is a dependency manager for Cocoa projects. To install Prestyler simply add the following line to your Podfile:
 ```ruby
 pod 'Prestyler'
 ```
 
+[Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager. To integrate Prestyler into your Xcode project specify it in  `Cartfile`:
+```ogdl
+github "kruil/Prestyler" "1.0.0"
+```
 # How to use
 
 Prestyler parse your string, applies defined rules, and gives `NSAttributedString` as a result:
@@ -131,8 +133,7 @@ Prestyler.defineRule("<random>", Precolor().random())
 
 ### Few things you need to know
 
-- Don't put a tag inside other tags. Results can be unexpectable (but safe). Instead just create new Rule with desired style.
-- Adding same styles to rule like `Prestyler.defineRule("$", UIColor.yellow, UIColor.green)` has no effect. There will be applied just a last one.
+- Don't put a tag inside other tags. Results can be unexpectable (but safe). Instead create new Rule with desired style.
 - When you define already existing style the old one would replaced.
 
 # Example
@@ -142,7 +143,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Author
 
-Ilia Krupko
+Ilia Krupko. I use Prestyler in my [Monetal](https://myMonetal.com) project.
 
 ## License
 
