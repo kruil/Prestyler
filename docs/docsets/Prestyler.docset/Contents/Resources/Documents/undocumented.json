@@ -1,6 +1,12 @@
 {
   "warnings": [
-
+    {
+      "file": "/Users/kruil/Dropbox/Prestyler/Prestyler/Classes/Prefilter.swift",
+      "line": 13,
+      "symbol": "PrefilterType.numbers",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    }
   ],
   "source_directory": "/Users/kruil/Dropbox/Prestyler"
 }

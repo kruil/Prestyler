@@ -41,6 +41,9 @@
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
+                <a href="Enums/PrefilterType.html">PrefilterType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/Prestyle.html">Prestyle</a>
               </li>
             </ul>
@@ -59,14 +62,18 @@
         <section>
           <section class="section">
             
-            <p><img src="https://github.com/kruil/Prestyler/blob/master/logo.png?raw=true" alt="Prestyler: Swift text styler">
-<a href="https://travis-ci.org/kruil/Prestyler"><img src="https://img.shields.io/travis/kruil/Prestyler.svg?style=flat" alt="CI Status"></a>
+            <p><img src="https://github.com/kruil/Prestyler/blob/master/img/logo.png?raw=true" alt="Prestyler: Swift text styler"></p>
+
+<p><a href="https://travis-ci.org/kruil/Prestyler"><img src="https://img.shields.io/travis/kruil/Prestyler.svg?style=flat" alt="CI Status"></a>
 <a href="https://developer.apple.com/swift"><img src="https://img.shields.io/badge/language-swift%204.2-brightgreen.svg" alt="Swift Version"></a>
+<a href="https://kruil.github.io/Prestyler"><img src="https://github.com/kruil/Prestyler/blob/master/docs/badge.svg" alt="Documentation"></a>
+<a href="https://github.com/Carthage/Carthage"><img src="https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat" alt="Carthage Compatible"></a>
+<a href="https://cocoapods.org/pods/Prestyler"><img src="https://img.shields.io/github/license/kruil/prestyler.svg?style=flat" alt="License"></a>
+<a href="https://cocoapods.org/pods/Prestyler"><img src="https://img.shields.io/github/languages/code-size/kruil/prestyler.svg?style=flat" alt="Size"></a>
 <a href="https://cocoapods.org/pods/Prestyler"><img src="https://img.shields.io/cocoapods/v/Prestyler.svg?style=flat" alt="Version"></a>
-<a href="https://cocoapods.org/pods/Prestyler"><img src="https://img.shields.io/cocoapods/l/Prestyler.svg?style=flat" alt="License"></a>
 <a href="https://cocoapods.org/pods/Prestyler"><img src="https://img.shields.io/cocoapods/p/Prestyler.svg?style=flat" alt="Platform"></a></p>
 
-<p>Prestyler is a text formatting library which is based on original NSAttributedString class. It simplifies and extends original workflow, giving you clean and short syntax.</p>
+<p>Prestyler is a text styling library which is based on original NSAttributedString class. It simplifies and extends original workflow, giving you more clean and short syntax. You can find full <a href="https://kruil.github.io/Prestyler">documentation</a> here. Please check it out and leave your feedback!</p>
 
 <hr>
 
@@ -84,8 +91,10 @@
 
 <p>to</p>
 <pre class="highlight swift"><code><span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"$"</span><span class="p">,</span> <span class="kt">Prestyle</span><span class="o">.</span><span class="n">bold</span><span class="p">,</span> <span class="kt">Prestyle</span><span class="o">.</span><span class="n">underline</span><span class="p">,</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="p">)</span>
-<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"Prestyler do $everything$ instead of you."</span><span class="o">.</span><span class="nf">prestyled</span><span class="p">()</span>
+<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="s">"Prestyler does $everything$ for you."</span><span class="o">.</span><span class="nf">prestyled</span><span class="p">()</span>
 </code></pre>
+
+<hr>
 <h3 id='requirements-and-installation' class='heading'>Requirements and installation</h3>
 
 <ul>
@@ -140,6 +149,20 @@ it, simply add the following line to your Podfile:</p>
 <span class="o">*</span> <span class="kt">String</span> <span class="c1">// "432" or "#432"or "#648362" treated as hex color</span>
 <span class="o">*</span> <span class="kt">Int</span> <span class="c1">// 18, treated as a font size</span>
 </code></pre>
+<h3 id='prefilters' class='heading'>Prefilters</h3>
+
+<p>You can easy highlight numbers or other information usign <code>Prefilters</code>. It parses string and inserts provided tags which will be used later for styling. Now available two methods to highlight numbers and particular part of text. Both forms are used in this example:</p>
+<pre class="highlight swift"><code><span class="c1">// Filter what you need and style it</span>
+<span class="kt">Prestyler</span><span class="o">.</span><span class="nf">defineRule</span><span class="p">(</span><span class="s">"*"</span><span class="p">,</span> <span class="kt">UIColor</span><span class="o">.</span><span class="n">red</span><span class="p">)</span>
+<span class="k">let</span> <span class="nv">text</span> <span class="o">=</span> <span class="s">"Highlight text or numbers like 23 or 865 in your text using Prefilter. "</span> <span class="o">+</span>
+           <span class="s">"It parses your text, embrace numbers 73 and 1234, and you are ready to go."</span>
+<span class="k">let</span> <span class="nv">prefilteredText</span> <span class="o">=</span> <span class="n">text</span><span class="o">.</span><span class="nf">prefilter</span><span class="p">(</span><span class="nv">type</span><span class="p">:</span> <span class="o">.</span><span class="n">numbers</span><span class="p">,</span> <span class="nv">by</span><span class="p">:</span> <span class="s">"*"</span><span class="p">)</span><span class="o">.</span><span class="nf">prefilter</span><span class="p">(</span><span class="nv">text</span><span class="p">:</span> <span class="s">"text"</span><span class="p">,</span> <span class="nv">by</span><span class="p">:</span> <span class="s">"^"</span><span class="p">)</span>
+<span class="n">label</span><span class="o">.</span><span class="n">attributedText</span> <span class="o">=</span> <span class="n">prefilteredText</span><span class="o">.</span><span class="nf">prestyled</span><span class="p">()</span>
+</code></pre>
+
+<p align="right">
+<img src="https://raw.githubusercontent.com/kruil/Prestyler/master/img/prefilter.png?raw=true" align="center" alt="Your image title" width="300" />
+</p>
 <h3 id='working-with-colors' class='heading'>Working with colors 🎨</h3>
 
 <p>There are several ways you can manage colors in Prestyler. The easiest one is just to pass <code>UIColor</code> or hex string as a style:</p>
@@ -172,7 +195,7 @@ it, simply add the following line to your Podfile:</p>
 
 <p>To run the example project, clone the repo, and run <code>pod install</code> from the Example directory first.</p>
 
-<p><img src="https://raw.githubusercontent.com/kruil/Prestyler/master/screenshot1.png?raw=true" alt="Prestyler: Swift text styler"></p>
+<p><img src="https://raw.githubusercontent.com/kruil/Prestyler/master/img/screenshot1.png?raw=true" alt="Prestyler: Swift text styler"></p>
 <h2 id='author' class='heading'>Author</h2>
 
 <p>Ilia Krupko</p>
@@ -183,7 +206,7 @@ it, simply add the following line to your Podfile:</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2019 <a class="link" href="https://github.com/kruil/Prestyler" target="_blank" rel="external">Ilia Krupko</a>. All rights reserved. (Last updated: 2019-03-06)</p>
+          <p>&copy; 2019 <a class="link" href="https://github.com/kruil/Prestyler" target="_blank" rel="external">Ilia Krupko</a>. All rights reserved. (Last updated: 2019-03-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.9.1</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

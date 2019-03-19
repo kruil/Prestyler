@@ -7,11 +7,16 @@
 
 import Foundation
 
+/// PrefilterType specifies an entries type in prefilter
 public enum PrefilterType {
+    /// Numbers
     case numbers
 }
 
+
 public extension String {
+
+    /// Find all occurence of given type entries and embrace it with tags.
     func prefilter(type: PrefilterType, by tag: String) -> String {
         switch type {
         case .numbers:
@@ -19,6 +24,7 @@ public extension String {
         }
     }
 
+    /// Find all occurence of given text and embrace it with tags.
     func prefilter(text: String, by tag: String) -> String {
         let replacement = tag + text + tag
         return self.replacingOccurrences(of: text, with: replacement)
