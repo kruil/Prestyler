@@ -9,7 +9,6 @@ import Foundation
 
 public enum PrefilterType {
     case numbers
-    // case links
 }
 
 public extension String {

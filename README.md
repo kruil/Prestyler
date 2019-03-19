@@ -1,5 +1,5 @@
 
-![Prestyler: Swift text styler](https://github.com/kruil/Prestyler/blob/master/logo.png?raw=true)
+![Prestyler: Swift text styler](https://github.com/kruil/Prestyler/blob/master/img/logo.png?raw=true)
 
 
 [![CI Status](https://img.shields.io/travis/kruil/Prestyler.svg?style=flat)](https://travis-ci.org/kruil/Prestyler)
@@ -30,7 +30,7 @@ label.attributedText = attributedString
 to
 ``` swift
 Prestyler.defineRule("$", Prestyle.bold, Prestyle.underline, UIColor.red)
-label.attributedText = "Prestyler do $everything$ instead of you.".prestyled()
+label.attributedText = "Prestyler does $everything$ for you.".prestyled()
 ```
 
 ---
@@ -93,6 +93,19 @@ When you define a rule first parameter is a pattern to search in `String` format
 * String // "432" or "#432"or "#648362" treated as hex color
 * Int // 18, treated as a font size
 ```
+### Prefilters
+You can easy highlight numbers or other information usign `Prefilters`. It parses string and inserts provided tags which will be used later for styling. Now available two methods to highlight numbers and particular part of text. Both forms are used in this example:
+``` swift
+// Filter what you need and style it
+Prestyler.defineRule("*", UIColor.red)
+let text = "Highlight text or numbers like 23 or 865 in your text using Prefilter. " +
+           "It parses your text, embrace numbers 73 and 1234, and you are ready to go."
+let prefilteredText = text.prefilter(type: .numbers, by: "*").prefilter(text: "text", by: "^")
+label.attributedText = prefilteredText.prestyled()
+```
+<p align="right">
+<img src="https://raw.githubusercontent.com/kruil/Prestyler/master/img/prefilter.png?raw=true" align="center" alt="Your image title" width="300" />
+</p>
 
 ### Working with colors 🎨
 There are several ways you can manage colors in Prestyler. The easiest one is just to pass `UIColor` or hex string as a style:
@@ -125,7 +138,7 @@ Prestyler.defineRule("<random>", Precolor().random())
 # Example
 To run the example project, clone the repo, and run `pod install` from the Example directory first.
 
-![Prestyler: Swift text styler](https://raw.githubusercontent.com/kruil/Prestyler/master/screenshot1.png?raw=true)
+![Prestyler: Swift text styler](https://raw.githubusercontent.com/kruil/Prestyler/master/img/screenshot1.png?raw=true)
 
 ## Author
 

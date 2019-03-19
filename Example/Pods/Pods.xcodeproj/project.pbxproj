@@ -75,7 +75,7 @@
 		CC12DD0F2229062A007A3AEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Prestyler/Classes/Constants.swift; sourceTree = "<group>"; };
 		CC4EFD492227F22A00DB25C4 /* Prestyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prestyler.swift; path = Prestyler/Classes/Prestyler.swift; sourceTree = "<group>"; };
 		CC4EFD4B2227F33D00DB25C4 /* TextRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextRule.swift; path = Prestyler/Classes/TextRule.swift; sourceTree = "<group>"; };
-		CCA2A44E223FA565004D075C /* Prefilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Prefilter.swift; sourceTree = "<group>"; };
+		CCA2A44E223FA565004D075C /* Prefilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prefilter.swift; path = Prestyler/Classes/Prefilter.swift; sourceTree = "<group>"; };
 		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D77E02AFD22E8CDACADFD6130CA89AC5 /* Pods-Prestyler_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Prestyler_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		DAE17593E5F1BDB413A0A6C3BF60B341 /* Prestyler-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Prestyler-prefix.pch"; sourceTree = "<group>"; };
