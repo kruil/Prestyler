@@ -7,6 +7,7 @@
 
 import Foundation
 
+
 struct TextRule {
     let styles: [Any]
     var positions: [Int]
@@ -43,13 +44,17 @@ struct TextRule {
         return CGFloat(Prestyler.defaultFontSize)
     }
 
-    mutating func correctPositions(oldValue: Int, newValue: Int) {
-        let diff = oldValue - newValue
-        for index in 0..<positions.count {
-            if positions[index] > oldValue {
-                positions[index] = positions[index] - diff
+    mutating func correctPositions(offsets: [(Int, Int, Int)]) {
+        var result = [Int]()
+        for offset in offsets {
+            let oldValue = offset.0
+            let diff = offset.1
+            let maxValue = offset.2
+            for pos in positions where pos > oldValue && pos < maxValue {
+                result.append(pos + diff)
             }
         }
+        positions = result
     }
 
     func applyTo(text: inout NSMutableAttributedString) {

@@ -69,23 +69,26 @@ public class Prestyler {
         return textRules
     }
 
-    fileprivate static func correctPositions(_ positions: inout [Int], _ length: Int, _ existingRules: inout [TextRule]) {
+    static func correctPositions(_ positions: inout [Int], _ cutlength: Int, _ existingRules: inout [TextRule]) {
+        var offsets = [(Int, Int, Int)]()
+        var diff = -cutlength
         if positions.count > 0 {
             let oldValue = positions[0]
-            let newValue = positions[0] - length
-            for index in 0..<existingRules.count {
-                existingRules[index].correctPositions(oldValue: oldValue, newValue: newValue)
-            }
+            offsets.append((oldValue, diff, Int.max))
         }
-        for index in 1..<positions.count where index > 0 {
+        for index in 1..<positions.count {
+            diff -= cutlength
             let oldValue = positions[index]
-            let newValue = positions[index] - length * index
+            let newValue = positions[index] - cutlength * index
             positions[index] = newValue
-            for index in 0..<existingRules.count {
-                existingRules[index].correctPositions(oldValue: oldValue, newValue: newValue)
-            }
+            offsets.append((oldValue, diff, Int.max))
+            offsets[index-1].2 = oldValue
+        }
+        for i in 0..<existingRules.count {
+            existingRules[i].correctPositions(offsets: offsets)
         }
     }
+
 
     fileprivate static func correctPositionsAccording(_ positions: inout [Int], _ length: Int) {
         for index in 1..<positions.count where index > 0 {
