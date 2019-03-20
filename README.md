@@ -48,7 +48,7 @@ pod 'Prestyler'
 
 [Carthage](https://github.com/Carthage/Carthage) is a decentralized dependency manager. To integrate Prestyler into your Xcode project specify it in  `Cartfile`:
 ```ogdl
-github "kruil/Prestyler" "1.0.0"
+github "kruil/Prestyler" "1.1.0"
 ```
 # How to use
 
