@@ -143,7 +143,7 @@ To run the example project, clone the repo, and run `pod install` from the Examp
 
 ## Author
 
-Ilia Krupko. I use Prestyler in my [Monetal](https://myMonetal.com) project.
+Ilia Krupko. I use Prestyler in my [Monetal-ios](https://itunes.apple.com/us/app/monetal/id1302304930) project.
 
 ## License
 
