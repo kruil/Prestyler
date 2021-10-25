@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Prestyler'
-  s.version          = '1.1.0'
+  s.version          = '1.2.0'
   s.summary          = 'Elegant text formatting tool in Swift'
   s.homepage         = 'https://github.com/kruil/Prestyler'
   s.swift_version    = '4.2'

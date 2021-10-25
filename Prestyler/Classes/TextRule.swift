@@ -5,9 +5,6 @@
 //  Created by Ilya Krupko on 28/02/2019.
 //
 
-import Foundation
-
-
 struct TextRule {
     let styles: [Any]
     var positions: [Int]
@@ -87,6 +84,10 @@ struct TextRule {
             if styles.contains(where: { $0 as? Prestyle == .italic }) {
                 text.addAttributes([NSAttributedString.Key.font: UIFont.italicSystemFont(ofSize: fontSize)], range: range)
             }
+            if styles.contains(where: { $0 as? Prestyle == .boldItalic }) {
+                let font = UIFont.systemFont(ofSize: fontSize).boldItalic() ?? UIFont.boldSystemFont(ofSize: fontSize)
+                text.addAttributes([NSAttributedString.Key.font: font], range: range)
+            }
             if let font = font {
                 text.addAttributes([NSAttributedString.Key.font: font], range: range)
             }
@@ -114,5 +115,18 @@ struct TextRule {
             }
         }
         return ranges
+    }
+}
+
+fileprivate extension UIFont {
+    func withTraits(traits: UIFontDescriptor.SymbolicTraits...) -> UIFont? {
+        guard let descriptorL = self.fontDescriptor.withSymbolicTraits(UIFontDescriptor.SymbolicTraits(traits)) else{
+            return nil
+        }
+        return UIFont(descriptor: descriptorL, size: 0)
+    }
+
+    func boldItalic() -> UIFont? {
+        return withTraits(traits: .traitBold, .traitItalic)
     }
 }

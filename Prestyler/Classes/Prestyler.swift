@@ -14,6 +14,8 @@ public enum Prestyle {
     case bold
     /// Italic text
     case italic
+    /// Bold and Italic
+    case boldItalic
     /// Strikethrough text
     case strikethrough
     /// Underline text
