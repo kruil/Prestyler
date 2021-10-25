@@ -8,15 +8,15 @@
 
 Pod::Spec.new do |s|
   s.name             = 'Prestyler'
-  s.version          = '1.2.0'
+  s.version          = '2.0.0'
   s.summary          = 'Elegant text formatting tool in Swift'
   s.homepage         = 'https://github.com/kruil/Prestyler'
-  s.swift_version    = '4.2'
+  s.swift_version    = '5.0'
   s.license          = 'MIT'
   s.author           = 'Ilia Krupko'
   s.source           = { :git => 'https://github.com/kruil/Prestyler.git', :tag => s.version.to_s }
   s.ios.deployment_target = '12.0'
   s.documentation_url = 'https://kruil.github.io/Prestyler/'
-  s.source_files = 'Prestyler/Classes/*.swift'
+  s.source_files = 'Prestyler/Classes/**/*.swift'
   s.frameworks = 'UIKit'
 end

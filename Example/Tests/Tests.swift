@@ -22,13 +22,13 @@ class Tests: XCTestCase {
     func testPrefilter() {
         let prefilteredNumbers = "text 743 text text 716979".prefilter(type: .numbers, by: "*")
         XCTAssert(prefilteredNumbers == "text *743* text text *716979*")
-        let prefilteredTWord = "text 743 text text 716979".prefilter(text: "text", by: "^")
+        let prefilteredTWord = "text 743 text text 716979".prefilter(keyword: "text", by: "^")
         XCTAssert(prefilteredTWord == "^text^ 743 ^text^ ^text^ 716979")
         let prefilteredBoth = "text 743 text text 716979"
             .prefilter(type: .numbers, by: "*")
-            .prefilter(text: "text", by: "^")
+            .prefilter(keyword: "text", by: "^")
         let prefilteredBothInvert = "text 743 text text 716979"
-            .prefilter(text: "text", by: "^")
+            .prefilter(keyword: "text", by: "^")
             .prefilter(type: .numbers, by: "*")
         XCTAssert(prefilteredBoth == "^text^ *743* ^text^ ^text^ *716979*")
         XCTAssert(prefilteredBoth == prefilteredBothInvert)

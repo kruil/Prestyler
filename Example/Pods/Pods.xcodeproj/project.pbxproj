@@ -14,13 +14,14 @@
 		A31DCDF1EF195E95DF8421989A46941D /* Prestyler-dummy.m in Sources */ = {isa = PBXBuildFile; fileRef = EE79DE3E748A77639A0586307FC91168 /* Prestyler-dummy.m */; };
 		A5DE80A95B607A9C3BE217E5E201D601 /* Prestyler-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 43BB616F350A5F36D861EC73AD3B47EF /* Prestyler-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B28CE879FD71A7578E208E419E7A45F8 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
-		CC12DD0B222807FD007A3AEC /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC12DD09222807F9007A3AEC /* Extensions.swift */; };
+		CC0B2BE527270AA600873A6B /* String.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B2BE427270AA600873A6B /* String.swift */; };
+		CC0B2BE927270B3900873A6B /* UIColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B2BE827270B3900873A6B /* UIColor.swift */; };
+		CC0B2BED27270ECD00873A6B /* String+PrestyleFiltring.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B2BEC27270ECD00873A6B /* String+PrestyleFiltring.swift */; };
+		CC0B2BEF2727124400873A6B /* Prestyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC0B2BEE2727124400873A6B /* Prestyle.swift */; };
 		CC12DD0E222905A6007A3AEC /* Precolor.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC12DD0C2229057D007A3AEC /* Precolor.swift */; };
 		CC12DD102229062A007A3AEC /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC12DD0F2229062A007A3AEC /* Constants.swift */; };
 		CC4EFD4C2227F33D00DB25C4 /* TextRule.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4EFD4B2227F33D00DB25C4 /* TextRule.swift */; };
 		CC4EFD4D2227F34900DB25C4 /* Prestyler.swift in Sources */ = {isa = PBXBuildFile; fileRef = CC4EFD492227F22A00DB25C4 /* Prestyler.swift */; };
-		CCA2A44F223FA565004D075C /* Prefilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA2A44E223FA565004D075C /* Prefilter.swift */; };
-		CCA2A450223FB30D004D075C /* Prefilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = CCA2A44E223FA565004D075C /* Prefilter.swift */; };
 		E2986E3C961022F42A82A29DB935D35A /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */; };
 		EF3472A149419D49D912E1C4E0CE6806 /* Pods-Prestyler_Example-umbrella.h in Headers */ = {isa = PBXBuildFile; fileRef = 40CC3E8D5CD7C8852BF589B4DC47D0C0 /* Pods-Prestyler_Example-umbrella.h */; settings = {ATTRIBUTES = (Public, ); }; };
 /* End PBXBuildFile section */
@@ -70,12 +71,14 @@
 		BEF7F7C8E74AA82548018E893BF9F7D3 /* Pods-Prestyler_Tests-frameworks.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Prestyler_Tests-frameworks.sh"; sourceTree = "<group>"; };
 		C8757307719737AA924745B4DE89167B /* Pods-Prestyler_Example-resources.sh */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.script.sh; path = "Pods-Prestyler_Example-resources.sh"; sourceTree = "<group>"; };
 		CABBCED63BE7C21E21A8C9FC0478DCB6 /* Pods_Prestyler_Tests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Prestyler_Tests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CC12DD09222807F9007A3AEC /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Extensions.swift; path = Prestyler/Classes/Extensions.swift; sourceTree = "<group>"; };
+		CC0B2BE427270AA600873A6B /* String.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = String.swift; path = ../Prestyler/Classes/Extensions/String.swift; sourceTree = "<group>"; };
+		CC0B2BE827270B3900873A6B /* UIColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = UIColor.swift; path = ../Prestyler/Classes/Extensions/UIColor.swift; sourceTree = "<group>"; };
+		CC0B2BEC27270ECD00873A6B /* String+PrestyleFiltring.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "String+PrestyleFiltring.swift"; path = "../Prestyler/Classes/Extensions/String+PrestyleFiltring.swift"; sourceTree = "<group>"; };
+		CC0B2BEE2727124400873A6B /* Prestyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prestyle.swift; path = Prestyler/Classes/Prestyle.swift; sourceTree = "<group>"; };
 		CC12DD0C2229057D007A3AEC /* Precolor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Precolor.swift; path = Prestyler/Classes/Precolor.swift; sourceTree = "<group>"; };
 		CC12DD0F2229062A007A3AEC /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Constants.swift; path = Prestyler/Classes/Constants.swift; sourceTree = "<group>"; };
 		CC4EFD492227F22A00DB25C4 /* Prestyler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prestyler.swift; path = Prestyler/Classes/Prestyler.swift; sourceTree = "<group>"; };
 		CC4EFD4B2227F33D00DB25C4 /* TextRule.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TextRule.swift; path = Prestyler/Classes/TextRule.swift; sourceTree = "<group>"; };
-		CCA2A44E223FA565004D075C /* Prefilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Prefilter.swift; path = Prestyler/Classes/Prefilter.swift; sourceTree = "<group>"; };
 		D6DFF15000AFE2A371BF499E7AFDA808 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS12.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		D77E02AFD22E8CDACADFD6130CA89AC5 /* Pods-Prestyler_Tests-acknowledgements.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = "Pods-Prestyler_Tests-acknowledgements.plist"; sourceTree = "<group>"; };
 		DAE17593E5F1BDB413A0A6C3BF60B341 /* Prestyler-prefix.pch */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = "Prestyler-prefix.pch"; sourceTree = "<group>"; };
@@ -142,8 +145,8 @@
 		60934A9A6552771E6E6722EF98B47EEF /* Prestyler */ = {
 			isa = PBXGroup;
 			children = (
-				CC12DD09222807F9007A3AEC /* Extensions.swift */,
-				CCA2A44E223FA565004D075C /* Prefilter.swift */,
+				CC0B2BE327270A7800873A6B /* Extensions */,
+				CC0B2BEE2727124400873A6B /* Prestyle.swift */,
 				CC4EFD492227F22A00DB25C4 /* Prestyler.swift */,
 				CC12DD0C2229057D007A3AEC /* Precolor.swift */,
 				CC4EFD4B2227F33D00DB25C4 /* TextRule.swift */,
@@ -209,6 +212,16 @@
 				44D5347904CF754D6785B84253F2574A /* iOS */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		CC0B2BE327270A7800873A6B /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				CC0B2BE427270AA600873A6B /* String.swift */,
+				CC0B2BEC27270ECD00873A6B /* String+PrestyleFiltring.swift */,
+				CC0B2BE827270B3900873A6B /* UIColor.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 		D11E7EC4BDB8EFCA9E129FCC19973F87 /* Support Files */ = {
@@ -403,13 +416,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CC12DD0B222807FD007A3AEC /* Extensions.swift in Sources */,
 				CC4EFD4C2227F33D00DB25C4 /* TextRule.swift in Sources */,
 				CC4EFD4D2227F34900DB25C4 /* Prestyler.swift in Sources */,
 				A31DCDF1EF195E95DF8421989A46941D /* Prestyler-dummy.m in Sources */,
 				CC12DD0E222905A6007A3AEC /* Precolor.swift in Sources */,
-				CCA2A450223FB30D004D075C /* Prefilter.swift in Sources */,
+				CC0B2BED27270ECD00873A6B /* String+PrestyleFiltring.swift in Sources */,
+				CC0B2BE527270AA600873A6B /* String.swift in Sources */,
 				CC12DD102229062A007A3AEC /* Constants.swift in Sources */,
+				CC0B2BE927270B3900873A6B /* UIColor.swift in Sources */,
+				CC0B2BEF2727124400873A6B /* Prestyle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +433,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FCD42526D05262772A6FBBAC6B397AB /* Pods-Prestyler_Example-dummy.m in Sources */,
-				CCA2A44F223FA565004D075C /* Prefilter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -1,8 +1,8 @@
 //
-//  Prefilter.swift
-//  Pods-Prestyler_Example
+//  String+Prefilter.swift
+//  Prestyler
 //
-//  Created by Ilya Krupko on 18/03/2019.
+//  Created by Ilya Krupko on 25.10.2021.
 //
 
 import Foundation
@@ -13,11 +13,16 @@ public enum PrefilterType {
     case numbers
 }
 
-
-public extension String {
-
+public protocol PrestyleFiltring {
     /// Find all occurence of given type entries and embrace it with tags.
-    func prefilter(type: PrefilterType, by tag: String) -> String {
+    func prefilter(type: PrefilterType, by tag: String) -> String
+    /// Find all occurence of given text and embrace it with tags.
+    func prefilter(keyword: String, by tag: String) -> String
+}
+
+extension String: PrestyleFiltring {
+    /// Find all occurence of given type entries and embrace it with tags.
+    public func prefilter(type: PrefilterType, by tag: String) -> String {
         switch type {
         case .numbers:
             return prefilterNumbers(tag: tag)
@@ -25,12 +30,14 @@ public extension String {
     }
 
     /// Find all occurence of given text and embrace it with tags.
-    func prefilter(text: String, by tag: String) -> String {
-        let replacement = tag + text + tag
-        return self.replacingOccurrences(of: text, with: replacement)
+    public func prefilter(keyword: String, by tag: String) -> String {
+        let replacement = tag + keyword + tag
+        return self.replacingOccurrences(of: keyword, with: replacement)
     }
+}
 
-    fileprivate func prefilterNumbers(tag: String) -> String {
+fileprivate extension String {
+    func prefilterNumbers(tag: String) -> String {
         var str = self
         let characters = str.unicodeScalars
         var startIndex: Int?

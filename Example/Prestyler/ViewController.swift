@@ -28,7 +28,7 @@ class ViewController: UIViewController {
 
         // or define your owns:
         Prestyler.defineRule("$", 32, UIColor.orange, Prestyle.italic)
-        label2.attributedText = "Style $text$ in an easy way.".prestyled()
+        label2.attributedText = "Style $text$ in an <bi>easy<bi> way.".prestyled()
 
         Prestyler.defineRule("<yellowOnBlue>", UIColor.blue, Prestyle.bold)
         label3.attributedText = "<yellowOnBlue> Quick and free<yellowOnBlue> for use.".prestyled()
@@ -46,7 +46,7 @@ class ViewController: UIViewController {
         Prestyler.defineRule("^", UIColor.blue)
         let text = "Highlight text or numbers like 23 or 865 in your text using Prefilter. " +
                    "It parses your text, embrace numbers 73 and 1234, and you are ready to go."
-        let prefilteredText = text.prefilter(type: .numbers, by: "*").prefilter(text: "text", by: "^")
+        let prefilteredText = text.prefilter(type: .numbers, by: "*").prefilter(keyword: "text", by: "^")
         label6.attributedText = prefilteredText.prestyled()
 
         // You can easy style any text without tags by rule name or style list

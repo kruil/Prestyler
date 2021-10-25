@@ -7,34 +7,19 @@
 
 import Foundation
 
-
-/// This enumeration can be used to describe Rule styles.
-public enum Prestyle {
-    /// Bold text
-    case bold
-    /// Italic text
-    case italic
-    /// Bold and Italic
-    case boldItalic
-    /// Strikethrough text
-    case strikethrough
-    /// Underline text
-    case underline
-}
-
-
 /// Prestyler provides static methods to manage rules.
-public class Prestyler {
+public final class Prestyler {
     struct Rule {
         let pattern: String
         var styles: [Any]
     }
 
-    static var defaultFontSize = 18
+    static var defaultFontSize = 17
 
     static var rules = [
         Rule(pattern: "<b>", styles: [Prestyle.bold]),
         Rule(pattern: "<i>", styles: [Prestyle.italic]),
+        Rule(pattern: "<bi>", styles: [Prestyle.boldItalic]),
         Rule(pattern: "<strike>", styles: [Prestyle.strikethrough]),
         Rule(pattern: "<underline>", styles: [Prestyle.underline])
     ]
@@ -92,9 +77,23 @@ public class Prestyler {
     }
 
 
-    fileprivate static func correctPositionsAccording(_ positions: inout [Int], _ length: Int) {
+    private static func correctPositionsAccording(_ positions: inout [Int], _ length: Int) {
         for index in 1..<positions.count where index > 0 {
             positions[index] = positions[index] - length * index
         }
+    }
+}
+
+fileprivate extension StringProtocol where Index == String.Index {
+    func indexes(of string: Self, options: String.CompareOptions = []) -> [Int] {
+        var result: [Int] = []
+        var start = startIndex
+        while start < endIndex,
+            let range = self[start..<endIndex].range(of: string, options: options) {
+                result.append(range.lowerBound.utf16Offset(in: self))
+                start = range.lowerBound < range.upperBound ? range.upperBound :
+                    index(range.lowerBound, offsetBy: 1, limitedBy: endIndex) ?? endIndex
+        }
+        return result
     }
 }

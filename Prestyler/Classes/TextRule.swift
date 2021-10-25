@@ -130,3 +130,13 @@ fileprivate extension UIFont {
         return withTraits(traits: .traitBold, .traitItalic)
     }
 }
+
+fileprivate extension NSRange {
+    func splitUnitary() -> [NSRange] {
+        var result = [NSRange]()
+        for index in 0..<self.length {
+            result.append(NSRange(location: self.location + index, length: 1))
+        }
+        return result
+    }
+}
