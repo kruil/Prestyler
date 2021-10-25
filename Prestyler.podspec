@@ -15,7 +15,7 @@ Pod::Spec.new do |s|
   s.license          = 'MIT'
   s.author           = 'Ilia Krupko'
   s.source           = { :git => 'https://github.com/kruil/Prestyler.git', :tag => s.version.to_s }
-  s.ios.deployment_target = '9.0'
+  s.ios.deployment_target = '12.0'
   s.documentation_url = 'https://kruil.github.io/Prestyler/'
   s.source_files = 'Prestyler/Classes/*.swift'
   s.frameworks = 'UIKit'
